@@ -19,10 +19,10 @@ Train a GPT-style Small Language Model (SLM) from scratch on the TinyStories dat
 
 Below are example visuals you can include :
 
-![Training progress (loss curves)](assets\Screenshot 2025-10-21 161030.png)
+![Training progress (loss curves)](assets\loss_function.png)
 <sub>Figure: Train/validation loss over time.</sub>
 
-![Colab GPU runtime (T4)](assets\Screenshot 2025-10-21 160104.png)
+![Colab GPU runtime (T4)](assets\training_progress.png)
 <sub>Figure: Google Colab runtime with T4 GPU enabled.</sub>
 
 ## Run on Google Colab (recommended)
