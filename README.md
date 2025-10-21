@@ -15,6 +15,19 @@ Train a GPT-style Small Language Model (SLM) from scratch on the TinyStories dat
 - Checkpoint: best weights saved to `best_model_params.pt`
 - Inference: temperature and optional top-k sampling via `model.generate`
 
+## Preview
+
+Below are example visuals you can include (place images in `assets/`):
+
+![Training progress (loss curves)](assets/training-progress.png)
+<sub>Figure: Train/validation loss over time.</sub>
+
+![Colab GPU runtime (T4)](assets/colab-runtime.png)
+<sub>Figure: Google Colab runtime with T4 GPU enabled.</sub>
+
+![Sample generations](assets/sample-generations.png)
+<sub>Figure: Example text generations from the trained SLM.</sub>
+
 ## Run on Google Colab (recommended)
 
 1) Open the notebook in Google Colab.
@@ -102,6 +115,7 @@ After training or if `best_model_params.pt` already exists:
 
 - Dataset: TinyStories — https://huggingface.co/datasets/roneneldan/TinyStories
 - Utility patterns inspired by Karpathy's nanoGPT (tokenization and training structure)
+- Inspired by Dr. Raj Dandekar’s (MIT PhD) workshop on building a small language model from scratch
 
 ## License
 

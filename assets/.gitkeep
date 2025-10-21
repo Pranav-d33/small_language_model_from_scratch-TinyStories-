@@ -1,0 +1,5 @@
+# Image assets folder for README images.
+# Add the following images here with these exact names:
+# 1) training-progress.png   - Screenshot of the loss curve
+# 2) colab-runtime.png       - Screenshot showing Colab GPU (T4) enabled
+# 3) sample-generations.png  - Screenshot of generated text outputs
