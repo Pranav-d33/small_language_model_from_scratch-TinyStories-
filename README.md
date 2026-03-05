@@ -1,10 +1,11 @@
 # Small Language Model (SLM) on TinyStories
 
-Train a GPT-style Small Language Model (SLM) from scratch on the TinyStories dataset using PyTorch. The notebook covers dataset loading, tokenization to on-disk memmaps, a compact GPT architecture, training with mixed precision and warmup+cosine scheduling, and text generation.
+Train a GPT-style Small Language Model (SLM) from scratch on the TinyStories dataset using PyTorch. Available as a Jupyter notebook (`small_language_model_on_tinystories_dataset.ipynb`) or separate Python scripts for modular execution.
 
-- Main notebook: `small_language_model_on_tinystories_dataset.ipynb`
-- Environment target: Google Colab (GPU runtime)
-- Minimum GPU: T4 (or better: P100/V100/A100)
+- Main notebook: `small_language_model_on_tinystories_dataset.ipynb` (Colab-compatible)
+- Python scripts: `data_import.py`, `tokenize.py`, `batch.py`, `model.py`, `loss.py`, `train_config1.py`, `train_config2.py`, `train.py`, `plot.py`, `inference.py`
+- Environment target: Google Colab (GPU runtime) or local Python environment
+- Runs best on T4 GPU (or better: P100/V100/A100)
 
 ## Highlights
 
@@ -92,10 +93,24 @@ Then run locally:
    - Step 9: Plot losses.
    - Step 10: Inference: load best checkpoint and generate text.
 
-Tip:
-- Training parameters in the notebook include `batch_size=32`, `block_size=128`, `gradient_accumulation_steps=32`, `max_iters=20000`, `eval_iters=500`.
+## Run with Python Scripts
 
-## Inference
+For a modular approach, run the Python scripts in sequence. Each script corresponds to a step in the notebook.
+
+1. Set up environment (same as local setup above).
+2. Run scripts in order:
+   - `python data_import.py` - Install dependencies and load TinyStories dataset.
+   - `python tokenize.py` - Tokenize dataset and create `train.bin`/`validation.bin`.
+   - `python batch.py` - Define batch creation (imports needed for training).
+   - `python model.py` - Define the GPT model and config.
+   - `python loss.py` - Define loss estimation.
+   - `python train_config1.py` - Set training hyperparameters.
+   - `python train_config2.py` - Set optimizer and scheduler.
+   - `python train.py` - Run the training loop.
+   - `python plot.py` - Plot training losses.
+   - `python inference.py` - Load model and generate text.
+
+Note: Some scripts depend on variables defined in previous ones (e.g., `model`, `config`). Run them in a Python session or combine as needed for your setup.
 
 After training or if `best_model_params.pt` already exists:
 - The notebook re-creates the `GPT` with the same `GPTConfig`, loads the checkpoint, and runs `model.generate` on tokenized prompts (e.g., "Once upon a time there was a pumpkin.").
